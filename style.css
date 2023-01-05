@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: beige;
+}
+
+.app{
+    border:3px solid rgba(27, 245, 27, 0.171);
+    width: 20%;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px 10px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.app h4{
+    align-self: flex-start;
+}
+
+#addNew{
+    align-self: center;
+    background-color: rgba(27, 245, 27, 0.171);
+    display: flex;
+    padding: 4px;
+    width: 90%;
+}
+
+h5{
+    align-self: center;
+}
+
