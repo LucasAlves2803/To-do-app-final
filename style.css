@@ -9,12 +9,14 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: beige;
+    background-color: #e5e5e5;
+    font-family: sans-serif;
 }
 
 .app{
-    border:3px solid rgba(27, 245, 27, 0.171);
-    width: 20%;
+    border:5px solid #abcea1;
+    width: 300px;
+    height: 500px;
     border-radius: 5px;
     background-color: white;
     padding: 20px 10px 10px 20px;
@@ -29,10 +31,19 @@ body{
 
 #addNew{
     align-self: center;
-    background-color: rgba(27, 245, 27, 0.171);
+    background-color: rgba(171,206,161,0.35);
     display: flex;
-    padding: 4px;
+    justify-content: space-between;
+    padding: 5px 10px;
     width: 90%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.fa-plus{
+    background-color: #abcea1;
+    padding:3px;
+    border-radius: 3px;
 }
 
 h5{
