@@ -23,6 +23,7 @@ body{
     display: flex;
     flex-direction: column;
     gap:10px;
+    overflow-y: hidden;
 }
 
 .app h4{
@@ -50,3 +51,33 @@ h5{
     align-self: center;
 }
 
+#tasks{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+
+#tasks div{
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-between;  */
+    display: grid;
+    /* height: 100px; */
+    width: 250px;
+    background-color: #e2eede;
+    border: 3px solid #abcea1;
+    padding:5px;
+    border-radius: 6px;
+    gap: 5px;
+}
+
+.options{
+    justify-self: center;
+    display: flex;
+    gap:20px;
+}
+
+.options i{
+    cursor: pointer;
+}
