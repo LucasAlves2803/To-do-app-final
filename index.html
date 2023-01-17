@@ -30,19 +30,28 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <input type="text" name="" id="">
-                <input type="date" name="" id="">
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <label for="textInput">Task Title</label>
+                    <!-- o label faz referência a um elemento
+                     html e para determinar esse elemento se usa o "for". Exemplo: for='text' signifca que o elemento
+                    que tiver o id='text' é o elemento que está conectado ao label   -->
+                    <input class="form-control" type="text" name="" id="textInput">
+                    <div id="msg"></div>
+                    <br>
+                    <label for="dataInput"> Due Date</label>
+                    <input class="form-control" type="date" name="" id="dataInput">
+                    <br>
+                    <label for="textarea">Description</label>
+                    <textarea class="form-control" name="" id="textarea" cols="30" rows="5"></textarea>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add</button>
+                <button type="submit" id="add" class="btn btn-primary">Add</button>
                 </div>
             </div>
             </div>
         </form>
                 <div id="tasks">
-            <div>
+            <!-- <div>
                 <span class="fw-bold">Task 1</span>
                 <span class="small text-secondary">05/01/2022</span>
                 <p>Ir para vila jogar basquete</p>
@@ -68,7 +77,7 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                     <i class="fa-solid fa-trash"></i>
                 </span>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>

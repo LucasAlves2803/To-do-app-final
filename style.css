@@ -23,8 +23,10 @@ body{
     display: flex;
     flex-direction: column;
     gap:10px;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
+
+.app::-webkit-scrollbar { width: 0 !important }
 
 .app h4{
     align-self: flex-start;
@@ -80,4 +82,8 @@ h5{
 
 .options i{
     cursor: pointer;
+}
+
+#msg{
+    color:red;
 }
