@@ -19,11 +19,11 @@ let formValidation = () =>{
     }else{
         msg.innerHTML = "";
         acceptData();
-        add.setAttribute("data-bs-dismiss", 'modal');
-        add.click();
+        add.setAttribute("data-bs-dismiss", 'modal'); // atributo para fechar automaticamente a caixa
+        add.click(); // click para ajudar a fechar
         ( () => {
             add.setAttribute("data-bs-dismiss", '');
-        })()
+        })() // anonimo function é executada uma única vez
     }
 }
 
