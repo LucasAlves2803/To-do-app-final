@@ -30,14 +30,13 @@ let formValidation = () =>{
 let data = []
 
 let acceptData = () => {
-    
     data.push({ text: textInput.value,
                 date: dateInput.value,
                 description: textarea.value,
     });
-
-    localStorage.setItem('data',JSON.stringify(data));
-    // data['text'] = textInput.value; // título do form
+    console.log(dateInput.value + typeof dateInput);    
+    localStorage.setItem('data',JSON.stringify(data)); // ooloca no local storage o array com as tarefas
+    // data['text'] = textInput.value; // título d form
     // data['dateInput'] = dateInput.value; // data do form
     // data['description'] = textarea.value; // texto do form
     console.log(data);
@@ -45,15 +44,17 @@ let acceptData = () => {
 }
 
 let createTasks = () => { // Cria o elemento html com a tarefa escrita no form
-    tasks.innerHTML = "";
-    data.map((x,y) =>{
+    tasks.innerHTML = ""; // limpa a variável tasks
+    data.map((x,y) =>{ // percorre todos os elementos do array
+        // criando um card para cada um deles e adicionando a variável tasks
+        // o map na prática cria aquela lista de caixinhas
         return (tasks.innerHTML += `<div id=${y} >
         <span class="fw-bold"> ${x.text} </span>
-        <span class="small text-secondary"> ${x.dateInput} </span>
+        <span class="small text-secondary"> ${x.date} </span>
         <p>${x.description}</p>
         <span class="options">
             <i data-bs-toggle="modal" data-bs-target="#form" onclick="editTask(this)" class="fa-solid fa-pen-to-square"></i>
-            <i  onclick="deleteTask(this)" class="fa-solid fa-trash"></i>
+            <i  onclick="deleteTask(this); createTasks()" class="fa-solid fa-trash"></i>
         </span>
     </div>`)
     })
@@ -68,26 +69,28 @@ let resetForm = () => {
 
 
 let deleteTask = (e) => {
-    e.parentElement.parentElement.remove();
-    data.splice(e.parentElement.parentElement.id,1);
-    localStorage.setItem('data',JSON.stringify(data));
-    console.log(e.parentElement.parentElement.id);
+    console.log(e.parentElement.parentElement.id)
+    data.splice(e.parentElement.parentElement.id,1); // deleta o elemento do array data
+    localStorage.setItem('data',JSON.stringify(data)); // recoloca o array data no localStorage
+    // Quando apagar um elemento é importante ter certeza que o id e o indíce do elemento são iguais
+    // porque caso contrário um elemento diferente pode ser apagado sem querer
+    e.parentElement.parentElement.remove(); // remove o card (o elemento html) que corresponde ao elemento do array removido
 }
 
 let editTask = (e) => {
 
     let seletedTask = e.parentElement.parentElement;
-
+    console.log("data =>" + seletedTask.children[1].innerHTML);
     textInput.value = seletedTask.children[0].innerHTML;
     dateInput.value = seletedTask.children[1].innerHTML;
     textarea.value = seletedTask.children[2].innerHTML;
-    seletedTask.remove();
+    deleteTask(e); // envia o parâmetro e, porque a função delete tasks acessará o elemento pai
 }
 
 
 ( () => {
-    data = JSON.parse(localStorage.getItem('data'));
-    console.log(data);
-
-    createTasks();
+    data = JSON.parse(localStorage.getItem('data')) || []; // reinicia o array para que as tarefas 
+    // antigas não se percam
+    console.log(data);  
+    createTasks(); // quando o array data não existe (não existir é diferente de ter um array vazio, um array sem elementos é aceito), o map não é executado, e as tarefas não são criadas
 })();
